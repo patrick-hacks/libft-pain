@@ -17,12 +17,6 @@ extern "C" {
 static void delfunction(void *content) { free(content); }
 }
 
-TEST_F(LstClear, OptionalSize0) { 
-  t_list *list = nullptr;
-  ft_lstclear(&list, delfunction); 
-  EXPECT_EQ(nullptr, list);
-}
-
 TEST_F(LstClear, Size1) {
   auto list = generateTestList(1);
   ft_lstclear(&list, delfunction);

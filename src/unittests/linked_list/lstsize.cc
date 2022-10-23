@@ -16,10 +16,6 @@ class LstSize : public ::testing::Test {
   }
 };
 
-TEST_F(LstSize, OptionalSize0) {
-  EXPECT_EQ(0, ft_lstsize(nullptr));
-}
-
 TEST_F(LstSize, Size1) {
   auto list = generateTestList(1);
   EXPECT_EQ(1, ft_lstsize(list));

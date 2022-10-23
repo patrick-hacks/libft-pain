@@ -6,8 +6,8 @@ install_cmake () {
   then
     echo "installing brew..."
     cd ~ && mkdir ./homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-    echo 'PATH="~/homebrew/bin:$PATH"' >> ~/.bash_profile
-    echo 'PATH="~/homebrew/bin:$PATH"' >> ~/.zshrc
+    echo 'PATH="$HOME/homebrew/bin:$PATH"' >> ~/.bash_profile
+    echo 'PATH="$HOME/homebrew/bin:$PATH"' >> ~/.zshrc
   fi
 
   if ! command -v cmake &> /dev/null

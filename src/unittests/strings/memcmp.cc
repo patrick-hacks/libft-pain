@@ -11,7 +11,7 @@ static void compare(const void *mem1, const void *mem2, size_t n) {
   int test = ft_memcmp(mem1, mem2, n);
   if (real != 0) real = real < 0 ? -1 : 1;
   if (test != 0) test = test < 0 ? -1 : 1;
-  EXPECT_EQ(real, test);
+  EXPECT_EQ(real, test) << "size: " << n;
 }
 
 TEST(Memcmp, Length0) {

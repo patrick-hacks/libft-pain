@@ -30,11 +30,6 @@ static void decrement(void *content) {
   data->b -= 2;
 }
 
-TEST_F(Lstiter, OptionalSize0) {
-  t_list* list = nullptr;
-  ft_lstiter(list, nothing);
-}
-
 TEST_F(Lstiter, Size1NoChange) {
   auto list = generateTestList(1);
   ft_lstiter(list, nothing);

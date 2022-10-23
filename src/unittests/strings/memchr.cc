@@ -7,7 +7,7 @@
 #include "src/unittests/libft.h"
 
 static void compare(const void *s, int c, size_t n) {
-  EXPECT_EQ(memchr(s, c, n), ft_memchr(s, c, n));
+  EXPECT_EQ(memchr(s, c, n), ft_memchr(s, c, n)) << "0x" << std::hex << c;
 }
 
 TEST(Memchr, Length0) {

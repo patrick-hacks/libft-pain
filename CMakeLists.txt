@@ -41,7 +41,7 @@ file(GLOB ft_SRC
     ${LIBFT_FOLDER}/libft/*.h
 )
 add_library(
-    ft SHARED
+    ft STATIC
     ${ft_SRC}
 )
 target_compile_definitions(ft PRIVATE malloc=malloc_pain free=free_pain)

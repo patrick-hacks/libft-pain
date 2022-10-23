@@ -16,7 +16,7 @@ class LstaddBack : public ::testing::Test {
   }
 };
 
-TEST_F(LstaddBack, OptionalSize0) {
+TEST_F(LstaddBack, Size0) {
   t_list* list = nullptr;
   auto test_list = list;
   auto node = generateTestList(1);
