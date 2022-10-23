@@ -44,7 +44,7 @@ add_library(
     ${ft_SRC}
 )
 target_compile_definitions(ft PRIVATE malloc=malloc_pain free=free_pain)
-target_compile_options(ft PRIVATE -fsanitize=address,undefined -fno-omit-frame-pointer -fno-common -O1)
+target_compile_options(ft PRIVATE -g -fsanitize=address,undefined -fno-omit-frame-pointer -fno-common)
 
 # =============
 # MAKEFILE
