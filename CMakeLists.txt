@@ -8,7 +8,6 @@ enable_testing()
 set(CMAKE_CXX_STANDARD 17)
 include_directories(.)
 
-
 # =============
 # GTEST
 # =============
@@ -30,7 +29,7 @@ include(GoogleTest)
 find_path(
     LIBFT_FOLDER
     NAMES libft
-    HINTS ./ ../
+    HINTS ./
 )
 if(NOT LIBFT_FOLDER)
     message(FATAL_ERROR "Can not find libft folder")

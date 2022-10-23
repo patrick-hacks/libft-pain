@@ -78,3 +78,11 @@ TEST(Strncmp, SpecialChars) {
   compare("\001\002\0377\0376", "\001\002\0377\0376", 5);
   compare("\001\002\0377\0376", "\001\002\0377\0376", 3);
 }
+
+TEST(Strncmp, MaxSize) {
+    compare("abcdefghij", "abcdefghij", SIZE_MAX);
+  compare("abcdefghij", "abcdefghi", SIZE_MAX);
+  compare("abcdefghij", "abcdefghijklmnop", SIZE_MAX);
+  compare("abcdefghij", "bbcdefghij", SIZE_MAX);
+  compare("abcdefghij", "bbcdefghijklmnopqrstuvwxyz", SIZE_MAX);
+}

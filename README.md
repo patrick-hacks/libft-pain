@@ -7,14 +7,14 @@ Libft tester trying to make sure no test cases get unnoticed and focussing on a 
 
 ## Usage
 
-libft folder either inside the test directory or one directory above:
+libft folder inside the test directory:
 ```
-├─ libft/
-│  ├─ ft_atoi.c
-│  ├─ ft_itoa.c
-│  ├─ ft_split.c
 ├─ libft-pain/
 │  ├─ pain.sh
+│  ├─ libft/
+│  │  ├─ ft_atoi.c
+│  │  ├─ ft_itoa.c
+│  │  ├─ ft_split.c
 ```
 If you are not familiar with cmake **run pain.sh**
 
@@ -33,6 +33,11 @@ For a full list of options, check out: https://cmake.org/cmake/help/latest/manua
 build/Testing/LastTest.log
 shows you the detailed output of the last test
 
+## HELP it does not show any tests
+
+1. No main inside the libft directory
+2. Open libft-pain folder in Vscode or the extension has trouble finding the tests
+
 ## Leaks on ft_split
 
 A lot of people have a hard time figuring out why/where ft_split is leaking, so here the solution:
@@ -42,12 +47,12 @@ Malloc array of pointers to strings
 
 If array == Null  // Allocation failed
 	return NULL;
-	
-while (splits left) 
+
+while (splits left)
 {
 	Malloc string
 	If (string == null)  // Allocation failed
-	{ 
+	{
 		free ALL previously allocated strings
 		free array
 		return NULL

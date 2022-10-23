@@ -20,12 +20,12 @@ static void compare(const std::string &hay, const std::string &needle,
 
 TEST(Strnstr, EmptyStrings) {
   compare("", "", 0);
-  compare("", "", INT32_MAX);
+  compare("", "", 420);
 }
 
 TEST(Strnstr, NotFound) {
   compare("1234567890", "qwe", 5);
-  compare("1234567890", "asd", INT32_MAX);
+  compare("1234567890", "asd", 420);
 }
 
 TEST(Strnstr, SizeToShort) {
@@ -34,7 +34,7 @@ TEST(Strnstr, SizeToShort) {
 }
 
 TEST(Strnstr, PartiallyFound) {
-  compare("123 1234 12345 123456", "12345", INT32_MAX);
+  compare("123 1234 12345 123456", "12345", 420);
   compare("123 1234", "1234", 11);
 }
 
@@ -56,4 +56,10 @@ TEST(Strnstr, EmptyNeedle) {
 TEST(Strnstr, EmptyHay) {
   compare("", "12", 0);
   compare("", "123", 12);
+}
+
+TEST(Strnstr, SizeMax) {
+  compare("123 1234 12345 123456", "12345", SIZE_MAX);
+  compare("123 1234", "1234", SIZE_MAX);
+  compare("123 1234", "1234", (size_t)INT32_MAX + 1);
 }
