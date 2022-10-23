@@ -1,7 +1,8 @@
 #!/bin/bash
 
+PATH="$HOME/homebrew/bin:$PATH"
+
 install_cmake () {
-  echo "hi"
   if ! command -v brew &> /dev/null
   then
     echo "installing brew..."
@@ -33,12 +34,7 @@ then
   fi
 fi
 
-if ! command -v cmake &> /dev/null
-then
-  ~/homebrew/bin/cmake -B build
-else
-  cmake -B build
-fi
+cmake -B build
 cd build && make -j8
 
 printf '\033[0;31m'
