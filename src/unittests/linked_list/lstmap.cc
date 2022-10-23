@@ -29,11 +29,6 @@ static void *copy(void *content) {
   return new_data;
 }
 
-TEST_F(Lstmap, OptionalSize0) {
-  t_list* list = nullptr;
-  ft_lstmap(list, copy, empty_del);
-}
-
 TEST_F(Lstmap, Size1Copy) {
   auto list = generateTestList(1);
   auto new_list = ft_lstmap(list, copy, del);

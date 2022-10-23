@@ -1,22 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pfuchs <pfuchs@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/26 04:38:25 by pfuchs            #+#    #+#             */
-/*   Updated: 2022/07/26 05:29:22 by pfuchs           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright 2022
+// Author: pfuchs
+
+#ifndef SRC_FAKEFT_LIBFT_H_
+#define SRC_FAKEFT_LIBFT_H_
 
 #include <assert.h>
 #include <stddef.h>
-
-// struct t_list {
-//   void *content;
-//   struct t_list *next;
-// };
 
 extern "C" {
 
@@ -77,3 +66,5 @@ void ft_lstiter(t_list *lst, void (*f)(void *)) __attribute__((weak));
 t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
     __attribute__((weak));
 }
+
+#endif  // SRC_FAKEFT_LIBFT_H_

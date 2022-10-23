@@ -1,3 +1,8 @@
+// Copyright 2022
+// Author: pfuchs
+
+#include "src/malloc_pain/malloc_pain.h"
+
 #include <climits>
 #include <unordered_map>
 
@@ -40,7 +45,7 @@ std::string show_leaked_memory() {
   result << "leaked memory: \n";
   for (auto e : allocated_data) {
     result << "ptr:  " << (uint64_t)e.first << "\n";
-    std::string data((char *)e.first, e.second);
+    std::string data(reinterpret_cast<char *>(e.first), e.second);
     result << "data: " << data << "\n";
   }
   return result.str();

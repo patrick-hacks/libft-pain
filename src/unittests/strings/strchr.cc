@@ -49,7 +49,10 @@ TEST(Strchr, EndOnNull) {
 
 TEST(Strchr, CharOverflow) {
   compare("\001\002\0377\0376", '\001');
-  compare("\001\002\0377\0376", 0xff + 1);
   compare("\001\002\0377\0376", 0xff + 255);
   compare("\001\002\0377\0376", 0xff + 254);
+}
+
+TEST(Strchr, CharOverflowToNull) {
+  compare("\001\002\0377\0376", 0xff + 1);
 }

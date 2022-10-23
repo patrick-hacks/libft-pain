@@ -1,24 +1,25 @@
 // Copyright 2022
 // Author: pfuchs
 
-#include <cstdio>
 #include <stdio.h>
+
+#include <cstdio>
 
 #include "gtest/gtest.h"
 #include "src/unittests/libft.h"
 
-static void output(char c, FILE *file, std::string& real) {
+static void output(char c, FILE* file, std::string* real) {
   ft_putchar_fd(c, fileno(file));
-  real.push_back(c);
+  real->push_back(c);
 }
 
 TEST(PutcharFd, Stdout) {
   testing::internal::CaptureStdout();
   std::string real;
-  output('4', stdout, real);
-  output('2', stdout, real);
-  output(0, stdout, real);
-  output('z', stdout, real);
+  output('4', stdout, &real);
+  output('2', stdout, &real);
+  output(0, stdout, &real);
+  output('z', stdout, &real);
   std::string output = testing::internal::GetCapturedStdout();
   EXPECT_EQ(real, output);
 }
@@ -26,10 +27,10 @@ TEST(PutcharFd, Stdout) {
 TEST(PutcharFd, Stderr) {
   testing::internal::CaptureStderr();
   std::string real;
-  output('4', stderr, real);
-  output('2', stderr, real);
-  output(0, stderr, real);
-  output('z', stderr, real);
+  output('4', stderr, &real);
+  output('2', stderr, &real);
+  output(0, stderr, &real);
+  output('z', stderr, &real);
   std::string output = testing::internal::GetCapturedStderr();
   EXPECT_EQ(real, output);
 }
@@ -37,10 +38,10 @@ TEST(PutcharFd, Stderr) {
 TEST(PutcharFd, File) {
   std::FILE* file = tmpfile();
   std::string real;
-  output('4', file, real);
-  output('2', file, real);
-  output(0, file, real);
-  output('z', file, real);
+  output('4', file, &real);
+  output('2', file, &real);
+  output(0, file, &real);
+  output('z', file, &real);
   std::rewind(file);
   std::string output;
   output.resize(4);

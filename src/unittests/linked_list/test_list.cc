@@ -1,4 +1,7 @@
-#include "test_list.h"
+// Copyright 2022
+// Author: pfuchs
+
+#include "src/unittests/linked_list/test_list.h"
 
 #include <stdlib.h>
 

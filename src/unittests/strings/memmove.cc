@@ -22,7 +22,7 @@ static void compare(const void *src, size_t n, int offset) {
   memmove(real_center, src, n);
   void *return_ptr = ft_memmove(test_center, src, n);
   EXPECT_EQ(test_center, return_ptr) << "wrong return";
-  EXPECT_EQ(real_dst, test_dst);
+  EXPECT_EQ(real_dst, test_dst) << "offset: " << offset;
 }
 
 TEST(Memmove, Length0) {
